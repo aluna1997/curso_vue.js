@@ -16,13 +16,17 @@
 
             <ul>
                 <li v-for="auto of autos">
+                    <input type="number" v-model.number="auto.modelo">
                     {{auto.marca}} : {{auto.modelo}}
-                    <span v-if="auto.modelo == T3"> - No T3</span>
+                    <button @click="auto.modelo++">+</button>
+                    <span v-if="auto.modelo == 0"> - IS 0</span>
                 </li>
             </ul>
 
-            <input type="text" v-model="nuevo_auto">
+            <input type="text" v-model="nuevo_auto" @keyup.enter="agregarAuto">
             <button @click="agregarAuto">Agregar</button>
+
+            <h4>Total: {{total}}</h4>
 
         </div>
     </body>
